@@ -18,16 +18,22 @@ public class Activator : MonoBehaviour
         {
             if (collision.CompareTag("Cube") || collision.CompareTag("Player"))
             {
-                foreach (GameObject first in firstGroup)
+                Debug.Log("True");
+                if(firstGroup.Length != 0)
                 {
-                    first.GetComponent<Renderer>().material = normal;
-                    first.GetComponent<Collider>().isTrigger = false;
+                    foreach (GameObject first in firstGroup)
+                    {
+                        first.GetComponent<Renderer>().material = normal;
+                        first.GetComponent<Collider>().isTrigger = false;
+                    }
                 }
-
-                foreach (GameObject second in secondGroup)
+                if (secondGroup.Length != 0)
                 {
-                    second.GetComponent<Renderer>().material = tranparent;
-                    second.GetComponent<Collider>().isTrigger = true;
+                    foreach (GameObject second in secondGroup)
+                    {
+                        second.GetComponent<Renderer>().material = tranparent;
+                        second.GetComponent<Collider>().isTrigger = true;
+                    }
                 }
                 GetComponent<Renderer>().material = tranparent;
                 button.GetComponent<Renderer>().material = normal;

@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(GameBegin.Instance.gameBegin == false) return;
+
         if (Input.GetKey(keyOne))
         {
             GetComponent<Rigidbody>().linearVelocity += moveDirection;
